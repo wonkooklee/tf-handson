@@ -10,8 +10,10 @@ pipeline {
                     credentialsId: "aws-credentials"
                 ]]) {
                     sh '''
-                        aws --version
-                        aws ec2 describe-instances
+                      cd "02-overview"
+                      terraform init
+                      terraform plan
+                      cd ".."
                     '''
                 }
             }
